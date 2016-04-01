@@ -4,7 +4,7 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.json
   def index
-    @things = Thing.all.to_a # order("votes DESC").
+    @things = Thing.order("votes_count DESC").all.to_a # order("votes DESC").
   # a) counter_cache b) thing.all.order
   end
 
