@@ -4,13 +4,15 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.json
   def index
-    @things = Thing.all.to_a
+    @things = Thing.all.to_a # order("votes DESC").
   # a) counter_cache b) thing.all.order
   end
 
   # GET /things/1
   # GET /things/1.json
   def show
+    Vote.create(thing_id: params[:id]) # Do something with URL paramaters
+    redirect_to @thing.link
   end
 
   # GET /things/new
