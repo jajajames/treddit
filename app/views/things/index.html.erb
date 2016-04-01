@@ -4,39 +4,40 @@
 
 <div class="row">
   <div class="col-md-2">
-    <h5>Title</h5>
+    <h3>Score</h3>
   </div>
   <div class="col-md-6">
-    <h5>Summary</h5>
+    <h3>Summary</h3>
   </div>
   <div class="col-md-2">
-    <h5>Link</h5>
+    <h3>Link</h3>
   </div>
   <div class="col-md-2">
-    <h5>Actions<h5>
+    <h3>Actions<h3>
   </div>
 </div>
 
-  <section>
-    <% @things.each do |thing| %>
-      <div class="row">
-        <div class="col-md-2">
-          <p><%= link_to thing.title, thing.link %></p>
-        </div>
-        <div class="col-md-6">
-          <p><%= thing.summary %></p>
-        </div>
-        <div class="col-md-2">
-          <p><%= thing.link %></p>
-        </div>
-        <div class="col-md-2">
-          <p><%= link_to 'Show', thing %></p>
-          <p><%= link_to 'Edit', edit_thing_path(thing) %></p>
-          <p><%= link_to 'Destroy', thing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        </div>
+<section>
+  <% @things.each do |thing| %>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Score:<%= %></p>
       </div>
-    <% end %>
-  </section>
+      <div class="col-md-6">
+        <h4><%= link_to thing.title, thing.link %></h4>
+        <p><%= thing.summary %></p>
+      </div>
+      <div class="col-md-2">
+        <p><%= thing.link %></p>
+      </div>
+      <div class="col-md-2">
+        <p><%= link_to 'Show', thing %></p>
+        <p><%= link_to 'Edit', edit_thing_path(thing) %></p>
+        <p><%= link_to 'Destroy', thing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </div>
+    </div>
+  <% end %>
+</section>
 
 <br>
 
