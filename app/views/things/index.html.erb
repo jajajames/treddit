@@ -2,29 +2,41 @@
 
 <h1>Listing Things</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Summary</th>
-      <th>Link</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-2">
+    <h5>Title</h5>
+  </div>
+  <div class="col-md-6">
+    <h5>Summary</h5>
+  </div>
+  <div class="col-md-2">
+    <h5>Link</h5>
+  </div>
+  <div class="col-md-2">
+    <h5>Actions<h5>
+  </div>
+</div>
 
-  <tbody>
+  <section>
     <% @things.each do |thing| %>
-      <tr>
-        <td><%= thing.title %></td>
-        <td><%= thing.summary %></td>
-        <td><%= thing.link %></td>
-        <td><%= link_to 'Show', thing %></td>
-        <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
-        <td><%= link_to 'Destroy', thing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+        <div class="col-md-2">
+          <p><%= link_to thing.title, thing.link %></p>
+        </div>
+        <div class="col-md-6">
+          <p><%= thing.summary %></p>
+        </div>
+        <div class="col-md-2">
+          <p><%= thing.link %></p>
+        </div>
+        <div class="col-md-2">
+          <p><%= link_to 'Show', thing %></p>
+          <p><%= link_to 'Edit', edit_thing_path(thing) %></p>
+          <p><%= link_to 'Destroy', thing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </section>
 
 <br>
 
