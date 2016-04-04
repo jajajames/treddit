@@ -5,8 +5,12 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "IndexThings",root_path %></li>
             <li><%= link_to "NewThing",   new_thing_path %></li>
+            <% if current_user %>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
+            <% else %>
             <li><%= link_to "Login",      :login %></li>
             <li><%= link_to "Signup",     :signup %></li>
+            <% end %>
           </ul>
       </nav>
   </div>
