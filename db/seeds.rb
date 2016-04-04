@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+def create_thing
+  @thing = Thing.new(title: "Title", summary: "Summary",
+                     link: "example@example.com")
+  @thing.save
+end
+
+100.times do
+  create_thing
+end
