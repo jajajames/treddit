@@ -4,14 +4,14 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.json
   def index
-    @things = Thing.order("votes_count DESC").all.to_a # order("votes DESC").
+    @things = Thing.order("votes_count DESC")
   # a) counter_cache b) thing.all.order
   end
 
   # GET /things/1
   # GET /things/1.json
   def show
-    Vote.create(thing_id: params[:id]) # Do something with URL paramaters
+    @thing.votes.create # Vote.create(thing_id: params[:id]) # Create Vote with URL paramaters
     redirect_to @thing.link
   end
 
@@ -28,8 +28,11 @@ class ThingsController < ApplicationController
   # POST /things.json
   def create
     @thing = Thing.new(thing_params)
-    @thing.save
-    redirect_to root_path
+    if @thing.save # if @thing.save
+      redirect_to root_path # do this
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /things/1
