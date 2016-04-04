@@ -1,0 +1,5 @@
+<% @users.each do |user| %>
+  <h2><%= user.username %></h2>
+  <h4><%= user.email %></h4>
+  <h4><%= user.password_digest %></h4>
+<% end %>

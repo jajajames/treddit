@@ -2,11 +2,17 @@ Rails.application.routes.draw do
   resources :things do
     resources :votes, only: [:update, :create]
   end
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'things#index'
+
+  get '/signup' => 'users#new'
+  get '/login' => 'sessions#new', as: :login
+  post '/login' => 'sessions#new', as: :login_create
+  delete '/login' => 'sessions#destroy', as: :logout
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

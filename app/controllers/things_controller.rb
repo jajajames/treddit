@@ -5,7 +5,6 @@ class ThingsController < ApplicationController
   # GET /things.json
   def index
     @things = Thing.order("votes_count DESC")
-  # a) counter_cache b) thing.all.order
   end
 
   # GET /things/1
