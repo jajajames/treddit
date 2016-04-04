@@ -28,16 +28,8 @@ class ThingsController < ApplicationController
   # POST /things.json
   def create
     @thing = Thing.new(thing_params)
-
-    respond_to do |format|
-      if @thing.save
-        format.html { redirect_to @thing, notice: 'Thing was successfully created.' }
-        format.json { render :show, status: :created, location: @thing }
-      else
-        format.html { render :new }
-        format.json { render json: @thing.errors, status: :unprocessable_entity }
-      end
-    end
+    @thing.save
+    redirect_to root_path
   end
 
   # PATCH/PUT /things/1
