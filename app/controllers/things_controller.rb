@@ -26,7 +26,7 @@ class ThingsController < ApplicationController
   # POST /things
   # POST /things.json
   def create
-    @thing = Thing.new(thing_params)
+    @thing = current_user.things.new(thing_params) # @thing = Thing.new(thing_params)
     if @thing.save
       redirect_to root_path
     else
