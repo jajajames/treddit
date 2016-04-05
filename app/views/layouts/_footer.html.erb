@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <li><%= link_to "Home",    root_path %></li>
-      <li><%= link_to "New Thing",  new_thing_path %></li>
+      <li><%= link_to "New Thing",  new_thing_path if current_user %></li>
     </ul>
   </nav>
 </footer>
