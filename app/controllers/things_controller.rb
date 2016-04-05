@@ -1,6 +1,6 @@
 class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_user, only: [:create, :new]
   # GET /things
   # GET /things.json
   def index
@@ -27,8 +27,8 @@ class ThingsController < ApplicationController
   # POST /things.json
   def create
     @thing = Thing.new(thing_params)
-    if @thing.save # if @thing.save
-      redirect_to root_path # do this
+    if @thing.save
+      redirect_to root_path
     else
       render :new
     end
