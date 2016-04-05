@@ -10,7 +10,7 @@ class ThingsController < ApplicationController
   # GET /things/1
   # GET /things/1.json
   def show
-    @thing.votes.create # Vote.create(thing_id: params[:id]) # Create Vote with URL paramaters
+    @thing.votes.create(user: current_user) # Create Vote with URL paramaters & current_user
     redirect_to @thing.link
   end
 
