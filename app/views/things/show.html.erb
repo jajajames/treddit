@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-2">
+    <h4><%= @thing.votes.size %> votes</h4>
+    <p><%= link_to 'Vote', thing_votes_path(@thing), method: :post %></p>
+    <p><%= link_to 'Edit', edit_thing_path(@thing) %></p>
+    <p><%= link_to 'Destroy', @thing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <p><%= link_to 'Comment Page', thing_comments_path(@thing) %></p>
+  </div>
+  <div class="col-md-8">
+    <h4><%= @thing.title %></h4>
+    <h5><%= link_to @thing.link, view_thing_path(@thing) %></h5>
+    <p><%= @thing.summary %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @thing.title %>
-</p>
+    <% if @thing.comments.any? %>
+      <h3>Comments:</h3>
+      <p> <%= link_to "New Comment", new_thing_comment_path(@thing) %> </p>
+      <% @thing.comments.each do |comm|  %>
+        <br><p> <%= comm.body %> </p><br>
+      <% end %>
+    <% end %>
 
-<p>
-  <strong>Summary:</strong>
-  <%= @thing.summary %>
-</p>
 
-<p>
-  <strong>Link:</strong>
-  <%= @thing.link %>
-</p>
-
-<%= link_to 'Edit', edit_thing_path(@thing) %> |
-<%= link_to 'Back', things_path %>
+  </div>
+</div>

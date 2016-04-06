@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :things do
     resources :votes, only: [:update, :create]
     resources :comments
+    member do
+      get 'view' # collection member
+    end
   end
   resources :users
 end

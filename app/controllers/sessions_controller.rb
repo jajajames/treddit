@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
   def create
     if @user = User.find_by_email(params[:session][:email]).try(:authenticate, params[:session][:password])
       session[:user_id] = @user.id
-      flash[:success] = "#{ @user.username } successfully logged in! Go you!"
       redirect_to :root
     else
       flash[:warning] = "That email and password combo is not correct!"
