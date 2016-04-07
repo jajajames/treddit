@@ -5,7 +5,6 @@
     <p><%= link_to 'Vote', thing_votes_path(@thing), method: :post %></p>
     <p><%= link_to 'Edit', edit_thing_path(@thing) %></p>
     <p><%= link_to 'Destroy', @thing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    <p><%= link_to 'Comment Page', thing_comments_path(@thing) %></p>
   </div>
   <div class="col-md-8">
     <h4><%= @thing.title %></h4>
@@ -14,12 +13,11 @@
 
     <% if @thing.comments.any? %>
       <h3>Comments:</h3>
-      <p> <%= link_to "New Comment", new_thing_comment_path(@thing) %> </p>
       <% @thing.comments.each do |comm|  %>
         <br><p> <%= comm.body %> </p><br>
       <% end %>
     <% end %>
-
+    <p><%= link_to "New Comment", new_thing_comment_path(@thing) %></p>
 
   </div>
 </div>

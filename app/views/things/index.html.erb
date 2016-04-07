@@ -19,7 +19,6 @@
         <p><%= link_to 'Vote', thing_votes_path(thing), method: :post %></p>
         <p><%= link_to 'Edit', edit_thing_path(thing) %></p>
         <p><%= link_to 'Destroy', thing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        <p><%= link_to 'Comment Page', thing_comments_path(thing) %></p>
       </div>
       <div class="col-md-8">
         <h4><%= link_to thing.title, thing %></h4>
